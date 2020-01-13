@@ -1,4 +1,4 @@
-package proj.vx.aa;
+package proj.doc.test.model;
 
 import com.sun.javadoc.ClassDoc;
 import com.sun.javadoc.DocErrorReporter;
@@ -12,7 +12,7 @@ import com.sun.tools.doclets.internal.toolkit.util.DocletAbortException;
 import com.sun.tools.doclets.internal.toolkit.util.FatalError;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
-import proj.vx.taglets.VxTag;
+import proj.vx.doc.qdox.VxTag;
 
 import java.util.ArrayList;
 import java.util.HashMap;

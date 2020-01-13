@@ -1,16 +1,16 @@
-package proj.vx.qdox;
+package proj.vx.doc.qdox;
 
 /**
  * Created by admin on 2020/1/13 15:23:16.
  */
-public class JsonGenerator implements Generator{
+public class YmlGenerator implements Generator{
     @Override
     public String generate() {
-        return "json";
+        return "yml";
     }
     
     @Override
     public void register() {
-        map.put("json", this);
+        map.put("yml", this);
     }
 }

@@ -1,4 +1,4 @@
-package proj.vx.aa;
+package proj.doc.test.model;
 
 /**
  * Created by admin on 2020/1/9 9:13:59.

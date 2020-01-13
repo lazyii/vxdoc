@@ -1,4 +1,4 @@
-package proj.vx.qdox;
+package proj.vx.doc.qdox;
 
 /**
  * Created by admin on 2020/1/9 10:16:03.

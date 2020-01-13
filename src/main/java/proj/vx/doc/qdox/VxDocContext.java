@@ -1,10 +1,9 @@
-package proj.vx.qdox;
+package proj.vx.doc.qdox;
 
 import com.thoughtworks.qdox.JavaProjectBuilder;
 import com.thoughtworks.qdox.model.JavaClass;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
-import proj.vx.taglets.VxTag;
 
 import java.io.File;
 import java.util.*;

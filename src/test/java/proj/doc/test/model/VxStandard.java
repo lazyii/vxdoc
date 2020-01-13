@@ -1,4 +1,4 @@
-package proj.vx.aa;
+package proj.doc.test.model;
 
 import com.sun.javadoc.DocErrorReporter;
 import com.sun.javadoc.LanguageVersion;

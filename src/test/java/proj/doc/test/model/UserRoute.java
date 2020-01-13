@@ -1,4 +1,4 @@
-package proj.vx.aa;
+package proj.doc.test.model;
 
 import java.util.List;
 
