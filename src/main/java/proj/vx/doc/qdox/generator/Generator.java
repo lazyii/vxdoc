@@ -1,4 +1,4 @@
-package proj.vx.doc.qdox;
+package proj.vx.doc.qdox.generator;
 
 import java.util.HashMap;
 import java.util.Map;

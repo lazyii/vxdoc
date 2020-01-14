@@ -4,6 +4,8 @@ import com.thoughtworks.qdox.JavaProjectBuilder;
 import com.thoughtworks.qdox.model.JavaClass;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
+import proj.vx.doc.qdox.generator.Generator;
+import proj.vx.doc.qdox.tag.VxTag;
 
 import java.io.File;
 import java.util.*;
@@ -11,7 +13,6 @@ import java.util.logging.Logger;
 
 /**
  * Created by admin on 2020/1/13 14:19:02.
- * scanSource=>sortClass=>
  */
 public class VxDocContext {
     Logger logger = Logger.getLogger(this.getClass().getName());
@@ -23,8 +24,8 @@ public class VxDocContext {
     OpenAPI               oas        = new OpenAPI();
     Collection<JavaClass> allClasses = Collections.EMPTY_LIST;
     
-    private VxDocConfig config = new VxDocConfig();
-    private Generator generator = Generator.map.get(config.getOutputType().name());
+    private VxDocConfig config    = new VxDocConfig();
+    private Generator   generator = Generator.map.get(config.getOutputType().name());
     
     public void scanJavaSource() {
         JavaProjectBuilder builder = new JavaProjectBuilder();
@@ -63,7 +64,13 @@ public class VxDocContext {
     public void buildOpenApiModel() {
         oas.info(new Info());
         //todo 解析三类map ，modelMap需要 getTagsByName("modela", true); 递归。其他两类不需要递归
-        modelClassMap.get("proj.vx.aa.UserExtend").getTagsByName("modela", true);
+        modelClassMap.get("proj.doc.test.model.UserExtend").getTagsByName("modela", true);
+        apiInfoClassMap.get("proj.doc.test.model.UserRoute").getTagByName("apiInfo").getNamedParameterMap();
+        apiInfoClassMap.forEach((k, v) -> {
+            System.out.println(k);
+            System.out.println(v);
+            
+        });
     }
     
     public VxDocConfig getConfig() {

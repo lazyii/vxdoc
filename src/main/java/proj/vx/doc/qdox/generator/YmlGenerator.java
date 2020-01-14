@@ -1,4 +1,4 @@
-package proj.vx.doc.qdox;
+package proj.vx.doc.qdox.generator;
 
 /**
  * Created by admin on 2020/1/13 15:23:16.
