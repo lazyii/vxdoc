@@ -1,29 +1,37 @@
 package proj.doc.test.model;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by admin on 2020/1/9 9:10:32.
  * @see String
  *
  * @apiInfo
- * title =description
- * title1 = ssssssssss
- * title2 = ddddddd
- * 22=dd
- * description = sdfsdf
+ * version = 1.0.0
+ * title = title
+ * description = 这个api描述
+ * termsOfService = "http://swagger.io/terms/"
+ * contact.name = swagger
+ * contact.email = "swagger@qq.com"
+ * contact.url = "https://swagger.io"
+ * license.name = "Apache 2.0"
+ * license.url = "http://www.apache.org/licenses/LICENSE-2.0.html"
  *
- * @route /test/user
+ * @route /aaaaaaa
  */
 public interface UserRoute {
     
     /**
-     * @param sdf  参数sdf
+     * @route /getUser.do
      * @operationId getUserInfoaa
      * @query userId 用户id
-     * @body {@link User}
+     * @body str
      * @response {@link }
      */
-    User sdfds(List<User> users);
+    User getUser(List<User> users, ArrayList<User> userArrayList,  String str, /*00*/int it, Integer itger, BigInteger bigInteger, BigDecimal bigDecimal, long lng, Long Lng, Map<String, Object> map);
     
 }

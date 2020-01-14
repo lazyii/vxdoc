@@ -2,7 +2,7 @@ package proj.doc.test.model;
 
 /**
  * Created by admin on 2020/1/13 16:17:23.
- * @modela userextend
+ * @model userextend
  */
 public class UserExtend extends User {
     
