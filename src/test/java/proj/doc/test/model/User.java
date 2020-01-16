@@ -1,9 +1,17 @@
 package proj.doc.test.model;
 
+import lombok.Data;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * Created by admin on 2020/1/9 9:13:59.
+ *
  * @model User
  */
+@Data
 public class User {
     
     /**
@@ -27,7 +35,38 @@ public class User {
     String nickName;
     
     /**
+     * dds
+     */
+    List<String> dds;
+    
+    /**
+     * ddt
+     */
+    String[] ddt;
+    
+    /**
+     * addresses
+     */
+    List<Address> addresses;
+    
+    /**
+     * uas
+     */
+    List<Map<User, Map<Address, Address>>> uas;
+    
+    /**
+     * list set string
+     */
+    List<Set<String>> lss;
+    
+    /**
+     * uamap
+     */
+    Map<User, Address> uamap;
+    /**
      * 班级
      */
-    Address address;
+    Address            address;
+    
+    
 }

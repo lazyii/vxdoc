@@ -5,7 +5,7 @@ import com.thoughtworks.qdox.model.JavaClass;
 import com.thoughtworks.qdox.model.JavaMethod;
 import com.thoughtworks.qdox.model.JavaParameter;
 import com.thoughtworks.qdox.model.JavaType;
-import io.swagger.v3.core.converter.ModelConverters;
+import io.swagger.v3.core.util.PrimitiveType;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
@@ -100,7 +100,13 @@ public class VxDocContext {
                 List<JavaParameter> parameters = method.getParameters();
                 List<JavaType> javaTypes = method.getParameterTypes();
                 //todo debug this
-                ModelConverters.getInstance().read()
+                PrimitiveType.createProperty(String.class);
+    
+                /*try {
+                    proj.vx.doc.qdox.tag.PrimitiveType.fromType(parameters.get(2).getType());
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }*/
                 
                 System.out.println("sdfsd");
             }
