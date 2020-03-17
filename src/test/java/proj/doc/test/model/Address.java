@@ -2,7 +2,12 @@ package proj.doc.test.model;
 
 /**
  * Created by admin on 2020/1/9 14:22:12.
- * @model
+ * $route sdf
+ * @author adminsss
+ * @implNote implnote
+ * @apiNote apinote
+ * @param sdfsdfsd
+ * @version sdf
  */
 public class Address {
     

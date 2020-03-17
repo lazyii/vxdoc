@@ -25,12 +25,26 @@ import java.util.Map;
  */
 public interface UserRoute {
     
+
     /**
-     * @route /getUser.do
-     * @operationId getUserInfoaa
-     * @query userId 用户id
-     * @body str
-     * @response {@link }
+     * sdfdsf
+     * @route /sdfdsf.do {post}
+     * @param users
+     * sdfsdfasdfsd
+     * @param userArrayList header sdfsdf
+     *                      sdfsdfsd
+     *                      sdfsadfsad
+     *                      asdfsadf
+     *                      sadfdfd
+     * @param str
+     * @param it
+     * @param itger
+     * @param bigInteger
+     * @param bigDecimal
+     * @param lng
+     * @param Lng
+     * @param map
+     * @return
      */
     User getUser(List<User> users, ArrayList<User> userArrayList,  String str, /*00*/int it, Integer itger, BigInteger bigInteger, BigDecimal bigDecimal, long lng, Long Lng, Map<String, Object> map);
     

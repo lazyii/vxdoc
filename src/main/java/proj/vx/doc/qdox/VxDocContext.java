@@ -6,6 +6,7 @@ import com.thoughtworks.qdox.model.JavaMethod;
 import com.thoughtworks.qdox.model.JavaParameter;
 import com.thoughtworks.qdox.model.JavaType;
 import io.swagger.v3.core.util.PrimitiveType;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
@@ -21,6 +22,7 @@ import static proj.vx.doc.qdox.tag.VxTag.*;
 /**
  * Created by admin on 2020/1/13 14:19:02.
  */
+@OpenAPIDefinition
 public class VxDocContext {
     Logger logger = Logger.getLogger(this.getClass().getName());
     
@@ -93,6 +95,21 @@ public class VxDocContext {
                 errors.add(k + " has a illegal route. Route must start with '/' or empty");
             }
             //step 2: 解析方法
+            /**
+             * sdfdsf
+             * @route /sdfdsf.do {post}
+             * @param users
+             * @param userArrayList header sdfsdf
+             * @param str sdf
+             * @param it sdf
+             * @param itger
+             * @param bigInteger
+             * @param bigDecimal
+             * @param lng
+             * @param Lng
+             * @param map
+             * @return
+             */
             for (JavaMethod method : v.getMethods()) {
                 JavaClass          rClass = method.getReturns();
                 JavaType           rType = method.getReturnType();
