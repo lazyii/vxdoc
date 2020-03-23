@@ -1,7 +1,5 @@
 package proj.doc.test.model;
 
-import lombok.Data;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -11,7 +9,6 @@ import java.util.Set;
  *
  * @model User
  */
-@Data
 public class User {
     
     /**

@@ -7,36 +7,23 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by admin on 2020/1/9 9:10:32.
- * @see String
- *
- * @apiInfo
- * version = 1.0.0
- * title = title
- * description = 这个api描述
- * termsOfService = "http://swagger.io/terms/"
- * contact.name = swagger
- * contact.email = "swagger@qq.com"
- * contact.url = "https://swagger.io"
- * license.name = "Apache 2.0"
- * license.url = "http://www.apache.org/licenses/LICENSE-2.0.html"
- *
+ * Created by admin on 2020/1/9 9:10:32  className 填充name ，comment填充description
+ * - name: pet
+ *   description: Everything about your Pets
  * @route /aaaaaaa
  */
 public interface UserRoute {
     
 
     /**
-     * sdfdsf
-     * @route /sdfdsf.do {post}
-     * @param users
-     * sdfsdfasdfsd
-     * @param userArrayList header sdfsdf
-     *                      sdfsdfsd
-     *                      sdfsadfsad
-     *                      asdfsadf
-     *                      sadfdfd
-     * @param str
+     * controller-desc api接口的描述,用来填充 summary/description 两个字段
+     *
+     *
+     * @tag (不必要，默认使用className)
+     * @route /sdjflksjdjlk.do {@link http.GET,http.POST}
+     * @param users 用户
+     * @param userArrayList {@link http.GET,http.POST} {@link http.DESC sdsdfsdfdsfdsf}
+     * @param str {@link http.DESC lsjdlfkjldkjflk}
      * @param it
      * @param itger
      * @param bigInteger

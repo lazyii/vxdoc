@@ -5,8 +5,6 @@ import com.thoughtworks.qdox.model.JavaClass;
 import com.thoughtworks.qdox.model.JavaMethod;
 import com.thoughtworks.qdox.model.JavaParameter;
 import com.thoughtworks.qdox.model.JavaType;
-import io.swagger.v3.core.util.PrimitiveType;
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
@@ -22,7 +20,6 @@ import static proj.vx.doc.qdox.tag.VxTag.*;
 /**
  * Created by admin on 2020/1/13 14:19:02.
  */
-@OpenAPIDefinition
 public class VxDocContext {
     Logger logger = Logger.getLogger(this.getClass().getName());
     
@@ -74,6 +71,11 @@ public class VxDocContext {
                 .get("proj.doc.test.model.UserRoute")
                 .getTagByName(apiInfo)
                 .getNamedParameterMap();
+        List<String> stringList = apiInfoClassMap
+                .get("proj.doc.test.model.UserRoute")
+                .getTagByName(apiInfo)
+                .getParameters();
+      
         Info info = new Info()
                 .title(map.get(title))
                 .description(map.get(description))
@@ -88,6 +90,7 @@ public class VxDocContext {
         //todo 解析routemap
         routeClassMap.forEach((k, v) -> {
             // step 1: 解析 class级的注释
+            JavaClass routeClass = v;
             String path = v.getTagByName(route) == null ? "" : v.getTagByName(route).getValue();
             if (path.equals("/")) {
                 path = "";
@@ -112,12 +115,12 @@ public class VxDocContext {
              */
             for (JavaMethod method : v.getMethods()) {
                 JavaClass          rClass = method.getReturns();
+                Map<String, String> d = method.getTags().get(0).getNamedParameterMap();
                 JavaType           rType = method.getReturnType();
                 String             code = method.getCodeBlock();
                 List<JavaParameter> parameters = method.getParameters();
                 List<JavaType> javaTypes = method.getParameterTypes();
                 //todo debug this
-                PrimitiveType.createProperty(String.class);
     
                 /*try {
                     proj.vx.doc.qdox.tag.PrimitiveType.fromType(parameters.get(2).getType());

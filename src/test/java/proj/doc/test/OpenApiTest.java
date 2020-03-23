@@ -17,8 +17,6 @@ import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
 import io.swagger.v3.oas.models.servers.Server;
-import io.swagger.v3.oas.models.servers.ServerVariable;
-import io.swagger.v3.oas.models.servers.ServerVariables;
 import org.junit.Test;
 
 /**
@@ -45,13 +43,8 @@ public class OpenApiTest {
         Server server = new Server();
         server.setDescription("server-description");
         server.setUrl("server-url");
+ 
         
-        ServerVariable serverVariable = new ServerVariable();
-        serverVariable.setDefault("default-sv");
-        serverVariable.setDescription("default-sv-description");
-        
-        server.setVariables(new ServerVariables().addServerVariable("sv11", serverVariable));
-    
         api.addServersItem(server);
         
         // todo pathItem1 设置path（url等参数）
@@ -82,9 +75,13 @@ public class OpenApiTest {
         RequestBody requestBody = new RequestBody();
         requestBody.content(content);
         operation1.setRequestBody(requestBody);
+    
+    
+        item1.setPost(operation1.responses(new ApiResponses().addApiResponse("200", new ApiResponse()
+                .description("200- response desc")
+                .content(new Content().addMediaType("application/json", new MediaType().schema(new StringSchema())))
+        )));
         
-        
-        item1.setOptions(operation1.responses(new ApiResponses().addApiResponse("1231321", new ApiResponse())));
         // todo pathItem1
         
         
@@ -92,20 +89,33 @@ public class OpenApiTest {
         
         // todo pathItem2
         PathItem item2 = new PathItem();
-        item2.setPost(new Operation().description("pathitem2-option-desc").responses(new ApiResponses().addApiResponse("1231321", new ApiResponse())));
+        item2.setPost(new Operation().description("pathitem2-option-desc").responses(new ApiResponses().addApiResponse("200", new ApiResponse()
+                .description("200- response desc")
+                .content(new Content().addMediaType("application/json", new MediaType().schema(new StringSchema())))
+        )));
         // todo pathItem2
         
         
         Paths paths = new Paths();
         paths.addPathItem("/all-option/aa.do", item1);
         paths.addPathItem("/post-option/aa.do", item2);
-        
         api.setPaths(paths);
-        
-        // todo 设置components
-    
+//        import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+//import io.swagger.v3.core.jackson.SchemaSerializer;
+//import io.swagger.v3.core.jackson.mixin.*;
+//import io.swagger.v3.core.util.DeserializationModule;
+//         todo 设置components
         System.out.println(Yaml.pretty(api));
-//        System.out.println(Json.pretty(api));
+        
+        
+        
+        
+        // pathItem => route, 包括httpMethod
+        //option由@param组成
+        // queryParamter/cookieParamter/headerParamter/pathParamter => param 一对一
+        // param 类型 => stringSchema，objectSchema，arraySchema,BinarySchema,fileSchema,integerSchma，一对一
+        // requestBody 由@param产生。
+        // apiResponse => 由return 产生。
     
     }
 }
